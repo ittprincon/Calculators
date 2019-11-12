@@ -1,0 +1,22 @@
+{
+  "name": "unit-jesting",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000C\u0000a\u0000l\u0000c\u0000u\u0000l\u0000a\u0000t\u0000o\u0000r\u0000s\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ittprincon/Calculators.git"
+  },
+  "author": "Ivan Rincon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ittprincon/Calculators/issues"
+  },
+  "homepage": "https://github.com/ittprincon/Calculators#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
