@@ -1,4 +1,4 @@
-class calculator {
+class Calculator {
   constructor(initial) {
     this.value = initial;
   }
@@ -26,6 +26,52 @@ class calculator {
   equal() {
     return this.value;
   }
-}
 
-module.exports = calculator;
+  rpn(string) {
+    if (string === "") {
+      return 0;
+    }
+
+    let arr1 = string.split(" ");
+    let arr2 = [];
+    let num1;
+    let num2;
+    for (let i = 0; i < arr1.length; i++) {
+      arr2.push(arr[i]);
+      switch (arr1[i]) {
+        case "+":
+          arr2.pop();
+          num2 = Number.parseInt(arr2.pop());
+          num1 = Number.parseInt(arr2.pop());
+          this.total = num1 + num2;
+          arr2.push(total);
+          break;
+
+        case "-":
+          arr2.pop();
+          num2 = Number.parseInt(arr2.pop());
+          num1 = Number.parseInt(arr2.pop());
+          this.total = num1 - num2;
+          arr2.push(total);
+          break;
+
+        case "*":
+          arr2.pop();
+          num2 = Number.parseInt(arr2.pop());
+          num1 = Number.parseInt(arr2.pop());
+          this.total = num1 * num2;
+          arr2.push(total);
+          break;
+
+        case "/":
+          arr2.pop();
+          num2 = Number.parseInt(arr2.pop());
+          num1 = Number.parseInt(arr2.pop());
+          this.total = num1 / num2;
+          arr2.push(total);
+          break;
+      }
+      return this.total;
+    }
+  }
+}
