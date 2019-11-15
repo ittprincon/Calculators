@@ -28,7 +28,9 @@ class Calculator {
   }
 
   rpn(string) {
-    if (string === "") {
+    if (string != null && string != undefined) {
+      string === "";
+    } else {
       return 0;
     }
 
@@ -36,8 +38,9 @@ class Calculator {
     let arr2 = [];
     let num1;
     let num2;
+    let total = 0;
     for (let i = 0; i < arr1.length; i++) {
-      arr2.push(arr[i]);
+      arr2.push(arr1[i]);
       switch (arr1[i]) {
         case "+":
           arr2.pop();
@@ -71,7 +74,11 @@ class Calculator {
           arr2.push(total);
           break;
       }
-      return this.total;
     }
+    return this.total;
+  }
+  infix() {
+    let expression = "";
   }
 }
+module.exports = Calculator;

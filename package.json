@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ittprincon/Calculators#readme",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2"
   }
 }

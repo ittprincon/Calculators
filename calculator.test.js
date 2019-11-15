@@ -1,5 +1,6 @@
 const Calculator = require("./Calculator");
-
+require("supertest");
+const server = require("./server");
 describe("Calculator", () => {
   test("has equal function", () => {
     const subject = new Calculator(0);
@@ -43,22 +44,35 @@ describe("Calculator", () => {
   });
   test("rpn addition works", () => {
     const subject = new Calculator(0);
-    expect(subject.rpn("1 2 +").equal()).toBe(3);
+    expect(subject.rpn("1 2 +")).toBe(3);
   });
   test("rpn subtraction works", () => {
     const subject = new Calculator(0);
-    expect(subject.rpn("7 4 -").equal()).toBe(3);
+    expect(subject.rpn("7 4 -")).toBe(3);
   });
   test("rpn multiplication works", () => {
     const subject = new Calculator(0);
-    expect(subject.rpn("11 2 *").equal()).toBe(22);
+    expect(subject.rpn("11 2 *")).toBe(22);
   });
   test("rpn division works", () => {
     const subject = new Calculator(0);
-    expect(subject.rpn("100 10 /").equal()).toBe(10);
+    expect(subject.rpn("100 10 /")).toBe(10);
   });
   test("rpn with multiple numerators works", () => {
     const subject = new Calculator(0);
-    expect(subject.rpn("1 2 + 7 - 2").equal()).toBe(-8);
+    expect(subject.rpn("1 2 + 7 - 2 *")).toBe(-8);
+  });
+
+  describe("GET /calculator", function() {
+    it("responds with json", function() {
+      return request(server)
+        .get("/calculator")
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(200)
+        .then(response => {
+          assert(response.body.email, "foo@bar.com");
+        });
+    });
   });
 });
